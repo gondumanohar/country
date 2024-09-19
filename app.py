@@ -43,21 +43,6 @@ def train_models(data):
 
 # Streamlit app
 st.title("Country Comparison: Predicting Unemployment Rate")
-
-# File uploader
-uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
-
-if uploaded_file is not None:
-    # Load the dataset
-    data = pd.read_csv(uploaded_file)
-    st.write("Dataset preview:")
-    st.dataframe(data.head())
-
-    # Display selected columns for understanding
-    st.subheader("Selected Features")
-    st.write(data[['Year', 'Population (in Millions)', 'GDP (in Trillions USD)', 
-                   'Inflation Rate (%)', 'Life Expectancy (Years)', 
-                   'Healthcare Expenditure per Capita (USD)', 'Internet Penetration (%)']].head())
     
     # Train the models
     models, predictions = train_models(data)
